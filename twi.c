@@ -63,14 +63,11 @@ ISR( TWI_vect )
 		}
 		break;
 	case TW_ST_SLA_ACK:
-		TWDR = status;
-		// clear TWEA because this is the last (only) byte to send
-		// mask out TWINT too because setting it would clear int flag
-		TWCR &= ~( _BV(TWEA) | _BV(TWINT) );
+		TWDR = 4; //test value, eventually pull from some buffer
 		break;
-		/*
+		
 	case TW_ST_DATA_ACK:
-		// FIXME: error led? (only one byte transmitted)
+		TWDR = status;
 		break;
 		*/
 	case TW_ST_DATA_NACK:
