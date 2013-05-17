@@ -69,7 +69,7 @@ ISR( TWI_vect )
 	case TW_ST_DATA_ACK:
 		TWDR = status;
 		break;
-		*/
+		
 	case TW_ST_DATA_NACK:
 	case TW_ST_LAST_DATA:	// only because arduino is broken
 		// set TWEA again to respond when addressed
